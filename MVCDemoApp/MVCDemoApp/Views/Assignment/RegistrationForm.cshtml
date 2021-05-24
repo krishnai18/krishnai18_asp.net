@@ -1,0 +1,29 @@
+﻿@model Person
+@{
+    ViewData["Title"] = "RegistrationForm";
+}
+
+<h1>RegistrationForm</h1>
+<form asp-controller="Assignment" asp-action="DisplayData" method="post">
+    <div asp-validation-summary="All" class="text text-danger"></div>
+    Name : <input type="text" asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name"></span>
+    <br />
+    MobileNo :<input asp-for="mobileno" class="form-control" />
+    <span asp-validation-for="mobileno"></span>
+    <br />
+    Email-id : <input asp-for="Emailid" class="form-control" />
+    <span asp-validation-for="Emailid"></span>
+    <br />
+    <label for="WillAttend">Will Attend</label>
+    <select  asp-for="WillAttend" name="WillAttend" id="WillAttend">
+        <option value="confirmation">confirmation</option>
+        <option value="yes">Yes, I'll be there</option>
+        <option value="no">No, I can't come</option>
+    </select><br />
+    <button type="submit" class="btn btn-success">register</button>
+</form>
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
